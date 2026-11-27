@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: #0b0d10;
+  color: #f4f4f5;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #7c5ce6;
+  color: #fff;
+}
+
+/* Barra de rolagem discreta */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1f1f2e transparent;
+}
+
+:focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+h1,
+h2 {
+  font-family: 'Chakra Petch', 'Plus Jakarta Sans', system-ui, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ------------------------------------------------------------------ */
+/* Fundo pontilhado discreto + detalhe lilás que acompanha o mouse     */
+/* ------------------------------------------------------------------ */
+.cursor-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1.2px);
+  background-size: 26px 26px;
+}
+
+.cursor-dots-glow {
+  background-image: radial-gradient(rgba(163, 148, 240, 0.55) 1.2px, transparent 1.6px);
+  background-size: 26px 26px;
+  opacity: 0.55;
+  -webkit-mask-image: radial-gradient(230px circle at var(--rx, -999px) var(--ry, -999px), #000, transparent 70%);
+  mask-image: radial-gradient(230px circle at var(--rx, -999px) var(--ry, -999px), #000, transparent 70%);
+}
+
+.cursor-ring {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 240px;
+  height: 240px;
+  margin: -120px 0 0 -120px;
+  border-radius: 9999px;
+  border: 1px solid rgba(163, 148, 240, 0.12);
+  background: radial-gradient(circle, rgba(124, 92, 230, 0.05), transparent 65%);
+  transform: translate3d(var(--rx, -999px), var(--ry, -999px), 0);
+  will-change: transform;
+}
+
+.cursor-dot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 9999px;
+  background: rgba(163, 148, 240, 0.35);
+  transform: translate3d(var(--dx, -999px), var(--dy, -999px), 0);
+  will-change: transform;
+}
+
+/* O detalhe do mouse nunca pode capturar cliques */
+.cursor-dots,
+.cursor-dots-glow,
+.cursor-ring,
+.cursor-dot {
+  pointer-events: none;
+}

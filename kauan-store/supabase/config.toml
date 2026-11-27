@@ -1,0 +1,20 @@
+project_id = "kauan-store"
+
+# Catálogo e detalhes são públicos. As demais funções validam o login do cliente por dentro.
+[functions.catalog]
+verify_jwt = false
+
+[functions.account-details]
+verify_jwt = false
+
+[functions.create-checkout]
+verify_jwt = false
+
+[functions.check-order]
+verify_jwt = false
+
+[functions.read-mailbox]
+verify_jwt = false
+
+[functions.create-deposit]
+verify_jwt = false
