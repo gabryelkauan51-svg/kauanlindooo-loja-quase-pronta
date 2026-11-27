@@ -204,3 +204,6 @@ export const EMPTY_VALORANT: ValorantFilters = {
   email: 'all',
   inactive: '',
 };
+export type StoredOrder = Record<string, unknown> & {
+  id?: string | number;
+};
