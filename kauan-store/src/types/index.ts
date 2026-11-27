@@ -204,6 +204,15 @@ export const EMPTY_VALORANT: ValorantFilters = {
   email: 'all',
   inactive: '',
 };
-export type StoredOrder = Record<string, unknown> & {
+/** Pedido salvo localmente no navegador (lista "Minhas compras"). */
+export interface StoredOrder {
   id?: string | number;
-};
+  externalRef: string;
+  orderId?: string | null;
+  game: GameSlug;
+  title: string;
+  status: OrderStatus;
+  finalPrice?: number | null;
+  checkout: CheckoutResponse | null;
+  createdAt: string | number;
+}
